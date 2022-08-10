@@ -18,7 +18,6 @@ import Speech from './component/speech';
         const [value, setValue] = React.useState('');
         const [errorMessage, setErrorMessage] = React.useState('');
         
-        
         const translate = (e)=>{
             const userValue = e.target.value; //input값이 저장되는 이벤트객체의 속성위치를 변수 지정.
             setErrorMessage("") //함수가 호출될 때 마다 초기값을 지정해줘야 된다.

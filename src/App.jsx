@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Speech from './component/speech';
 
      const fetchCat = async (text) => {
             const OPEN_API_DOMAIN = "https://cataas.com";
@@ -131,14 +130,14 @@ function App() {
         const alreadyFavorite = list.includes(mainCat);
   return (
       <div>
-          <Speech counter={counter} />
+          {/* <Speech counter={counter} /> */}
             <div className="main">
                 <h1 style={{fontSize:'110px',marginBottom:'30px'}}>CAT Background</h1>
                 <Form onUpdate={update} />
                 <MainCard img={mainCat} onHeartClick={handleHeartClick} alreadyFavorite={alreadyFavorite} />
             </div>
                 <Footer list={list} />
-            </div>
+      </div>
   );
 }
 

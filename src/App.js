@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ResultList from './components/ResultList';
 
      const fetchCat = async (text) => {
             const OPEN_API_DOMAIN = "https://cataas.com";
@@ -101,11 +102,10 @@ import './App.css';
 
 function App() {
         const Loading = "https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif"
-        const [counter,setCounter] = React.useState(0)
         const [list, setList] = React.useState([]);
         const [mainCat,setMainCat] = React.useState(Loading);
         
-// ---------------------------------------------------------------------------
+
         async function setInitialCat(){
             const newCat = await fetchCat('first Cat')
             setMainCat(newCat);
@@ -115,9 +115,8 @@ function App() {
             setInitialCat();
         },[])
         //setInitialCat() 함수가 한번만 실행되게 useEffect로 감싸주었다.
-// ---------------------------------------------------------------------------
         const handleHeartClick = ()=>{
-            setList([...list,mainCat]);
+            // setList([...list,mainCat]);
         }
         //첫번째 handleHearClick 함수가 실행되면 mainCat에는 Loading 이미지가 mainCat이 된다.
         //두번째 setInitialCat() 함수에 fetchCat 비동기 함수가 실행되어 mainCat 이미지는 'firtst Cat'을 텍스트 문구로 한 이미지 데이터가 얻게된다.
@@ -125,12 +124,14 @@ function App() {
         async function update(value){
             const main_img = await fetchCat(value);
             setMainCat(main_img);
-            setCounter(counter + 1)
+            // setCounter(counter + 1)
         }
+
         const alreadyFavorite = list.includes(mainCat);
+
   return (
       <div>
-          {/* <Speech counter={counter} /> */}
+                <ResultList />
             <div className="main">
                 <h1 style={{fontSize:'110px',marginBottom:'30px'}}>CAT Background</h1>
                 <Form onUpdate={update} />
@@ -138,6 +139,7 @@ function App() {
             </div>
                 <Footer list={list} />
       </div>
+
   );
 }
 

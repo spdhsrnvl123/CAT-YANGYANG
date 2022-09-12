@@ -1,6 +1,8 @@
-import React from 'react';
+import { useState,useEffect } from 'react';
 import './App.css';
-import ResultList from './components/ResultList';
+// import ResultList from './components/ResultList';
+import styled from "styled-components";
+// import Result from './components/Result';
 
      const fetchCat = async (text) => {
             const OPEN_API_DOMAIN = "https://cataas.com";
@@ -15,8 +17,8 @@ import ResultList from './components/ResultList';
 
     const Form = ({onUpdate})=>{
         const includesHangul = (text) => /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/i.test(text);
-        const [value, setValue] = React.useState('');
-        const [errorMessage, setErrorMessage] = React.useState('');
+        const [value, setValue] = useState('');
+        const [errorMessage, setErrorMessage] = useState('');
         
         const translate = (e)=>{
             const userValue = e.target.value; //input값이 저장되는 이벤트객체의 속성위치를 변수 지정.
@@ -61,6 +63,7 @@ import ResultList from './components/ResultList';
                 <div className="main-card">
                     <img
                         src = {img}
+                        alt = ""
                         width = "260"
                     />
                     <button onClick={onHeartClick}>{heartIcon}</button>
@@ -68,56 +71,42 @@ import ResultList from './components/ResultList';
             )
         }
         
-        const Item = (props)=>{
-            return(
-                <li>
-                    <img src={props.img} style={{ width: '140px' }} />
-                </li>
-            )
-        }
 
-        const Footer = ({list})=>{
-            if(list.length ===0){
-                return(
-                    <div className="footer">
-                        <h2 style={{fontWeight:"bold",paddingTop:"30px"}}>
-                            Click the heart to add the picture you want!
-                        </h2>                    
-                    </div>
-                )
-            }
-
-            return(
-                <div className="footer">
-                    <ul className="Item">
-                        {
-                            list.map((value,index)=>(
-                                <Item img={value} key={index} />
-                            ))
-                        }
-                    </ul>
-                </div>
-            )
-        }
+// styled Component region
+const ListBackground = styled.div`
+    background-color : linear-gradient(45deg, rgba(0,0,0,0.4),rgba(0,0,0,0,4));
+    width:100%;
+    height:230px;
+`
+const ListContainer = styled.ul`
+  padding: 10px;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+`
 
 function App() {
         const Loading = "https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif"
-        const [list, setList] = React.useState([]);
-        const [mainCat,setMainCat] = React.useState(Loading);
+        const [list, setList] = useState([]);
+        const [mainCat,setMainCat] = useState(Loading);
         
+        // console.log(list);
 
         async function setInitialCat(){
             const newCat = await fetchCat('first Cat')
             setMainCat(newCat);
         }
 
-        React.useEffect(()=>{
+        useEffect(()=>{
             setInitialCat();
         },[])
         //setInitialCat() 함수가 한번만 실행되게 useEffect로 감싸주었다.
-        const handleHeartClick = ()=>{
-            // setList([...list,mainCat]);
+        const handleHeartClick = () => {
+            setList([...list,mainCat]);
         }
+        console.log(list)
         //첫번째 handleHearClick 함수가 실행되면 mainCat에는 Loading 이미지가 mainCat이 된다.
         //두번째 setInitialCat() 함수에 fetchCat 비동기 함수가 실행되어 mainCat 이미지는 'firtst Cat'을 텍스트 문구로 한 이미지 데이터가 얻게된다.
 
@@ -129,15 +118,52 @@ function App() {
 
         const alreadyFavorite = list.includes(mainCat);
 
+// 삭제기능 구현
+const ResultList = ({value,index})=>{    
+    const onClick = (newValue,newIndex)=>{
+        console.log(newIndex)
+        setList((item)=>{
+            const targetIndex = newIndex;
+            return[...item.slice(0,targetIndex),...item.slice(targetIndex+1)]
+        })
+    }
+
+    return(
+        <li>
+            <img
+                src={value}
+                alt =""
+                style={{ width:"140px" }}
+            />
+            <button onClick={()=>onClick(value,index)}>X</button>
+        </li>
+    )
+}
+
+
   return (
       <div>
-                <ResultList />
             <div className="main">
                 <h1 style={{fontSize:'110px',marginBottom:'30px'}}>CAT Background</h1>
                 <Form onUpdate={update} />
                 <MainCard img={mainCat} onHeartClick={handleHeartClick} alreadyFavorite={alreadyFavorite} />
             </div>
-                <Footer list={list} />
+            <ListBackground>
+                {
+                    list.length === 0 ?
+                    <h2 style={{fontWeight:"bold",paddingTop:"30px"}}>
+                        Click the heart to add the picture you want!
+                    </h2> 
+                :
+                    <ListContainer>
+                        {
+                            list.map((value,index) => (
+                                <ResultList key={index} index={index} value={value}></ResultList>
+                            ))
+                        }
+                    </ListContainer> 
+                }
+            </ListBackground>
       </div>
 
   );

@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/Cat-backgroundnpm/static/css/main.0e0e09a3.css",
-    "main.js": "/Cat-backgroundnpm/static/js/main.d2798dcc.js",
-    "static/media/background.jpg": "/Cat-backgroundnpm/static/media/background.e0de357c64a8ac7b4077.jpg",
-    "index.html": "/Cat-backgroundnpm/index.html",
-    "main.0e0e09a3.css.map": "/Cat-backgroundnpm/static/css/main.0e0e09a3.css.map",
-    "main.d2798dcc.js.map": "/Cat-backgroundnpm/static/js/main.d2798dcc.js.map"
+    "main.css": "/Cat-Backgruond/static/css/main.362bb2bd.css",
+    "main.js": "/Cat-Backgruond/static/js/main.3f771d88.js",
+    "static/media/background.jpg": "/Cat-Backgruond/static/media/background.e0de357c64a8ac7b4077.jpg",
+    "index.html": "/Cat-Backgruond/index.html",
+    "main.362bb2bd.css.map": "/Cat-Backgruond/static/css/main.362bb2bd.css.map",
+    "main.3f771d88.js.map": "/Cat-Backgruond/static/js/main.3f771d88.js.map"
   },
   "entrypoints": [
-    "static/css/main.0e0e09a3.css",
-    "static/js/main.d2798dcc.js"
+    "static/css/main.362bb2bd.css",
+    "static/js/main.3f771d88.js"
   ]
 }

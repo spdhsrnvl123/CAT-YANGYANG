@@ -3,6 +3,8 @@ import MainCard from './components/MainCard';
 import Form from './components/Form';
 import ClickPlease from './components/ClickPlease';
 import Title from './components/Title';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import styled from 'styled-components';
 
      const fetchCat = async (text) => {
             const OPEN_API_DOMAIN = "https://cataas.com";
@@ -13,8 +15,21 @@ import Title from './components/Title';
             return `${OPEN_API_DOMAIN}/${responseJson.url}`;
         };
 
+const Wrapper = styled.div`
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 480px;
+    margin: 0 auto;
+    border: 1px solid powderblue;
+
+`
+
 function App() {
         const Loading = "https://thumbs.gfycat.com/DearWellinformedDalmatian-size_restricted.gif"
+        
         const [list, setList] = useState([]);
         const [mainCat,setMainCat] = useState(Loading);
         
@@ -30,6 +45,7 @@ function App() {
         const handleHeartClick = () => {
             setList([...list,mainCat]);
         }
+        console.log(list)
         //첫번째 handleHearClick 함수가 실행되면 mainCat에는 Loading 이미지가 mainCat이 된다.
         //두번째 setInitialCat() 함수에 fetchCat 비동기 함수가 실행되어 mainCat 이미지는 'firtst Cat'을 텍스트 문구로 한 이미지 데이터가 얻게된다.
 
@@ -64,7 +80,7 @@ const ResultList = ({value,index})=>{
 
 
   return (
-      <>
+      <Wrapper>
             <header>
                 <Title />
             </header>
@@ -74,9 +90,7 @@ const ResultList = ({value,index})=>{
             </main>
             <footer>
                 {
-                    list.length === 0 ?
-                    <ClickPlease />
-                :
+                    list.length === 0 ? <ClickPlease /> :
                     <ul>
                         {
                             list.map((value,index) => (
@@ -86,7 +100,7 @@ const ResultList = ({value,index})=>{
                     </ul> 
                 }
             </footer>
-      </>
+      </Wrapper>
   );
 }
 

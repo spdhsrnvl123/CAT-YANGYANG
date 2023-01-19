@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from 'react-bootstrap/Button';
 
 const Form = ({onUpdate})=>{
     const includesHangul = (text) => /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/i.test(text);
@@ -33,8 +34,9 @@ const Form = ({onUpdate})=>{
             placeholder="Please enter English language."
             value={value}
             onChange ={translate}
+            style={{marginRight:"20px"}}
             />
-            <button variant="dark">Dark</button>
+            <Button variant="outline-info">Create</Button>
             <p>{errorMessage}</p>
         </form>
     )

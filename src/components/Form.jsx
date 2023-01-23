@@ -2,7 +2,6 @@ import { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import './Form.css'
 
 const Form2 = ({onUpdate})=>{
     const includesHangul = (text) => /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/i.test(text);
@@ -41,9 +40,7 @@ const Form2 = ({onUpdate})=>{
           aria-label="Recipient's username"
           aria-describedby="basic-addon2"
         />
-        <Button variant="outline-secondary" id="button-addon2">
-          Button
-        </Button>
+        <Button variant="dark">Click</Button>
         {/* </form> */}
         <p>{errorMessage}</p>
       </InputGroup>

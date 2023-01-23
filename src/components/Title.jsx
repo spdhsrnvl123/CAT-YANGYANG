@@ -1,17 +1,17 @@
 import styled from 'styled-components';
 
 const CatTitle = styled.div`
-    @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap');
-    font-family: 'Cabin Sketch', cursive;
-    font-size: 74px;
+    @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap');
+    font-family: 'Gluten', cursive;
+    font-size: 64px;
     text-align: center;
-    margin : 20px;
+    margin : 30px;
 `
 
 export default function Title(){
     return(
         <CatTitle>
           CAT Background
-      </CatTitle>
+        </CatTitle>
     )
 }

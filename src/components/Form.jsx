@@ -1,7 +1,10 @@
 import { useState } from "react";
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import './Form.css'
 
-const Form = ({onUpdate})=>{
+const Form2 = ({onUpdate})=>{
     const includesHangul = (text) => /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/i.test(text);
     const [value, setValue] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -9,7 +12,6 @@ const Form = ({onUpdate})=>{
     const translate = (e)=>{
         const userValue = e.target.value; //input값이 저장되는 이벤트객체의 속성위치를 변수 지정.
         setErrorMessage("") //함수가 호출될 때 마다 초기값을 지정해줘야 된다.
-        
         if(includesHangul(userValue)){
             setErrorMessage("You cannot input Korean!");
         }
@@ -27,19 +29,37 @@ const Form = ({onUpdate})=>{
     }
 
     return(
-        <form onSubmit={create}>
-            <input
-            className = "input_style"
-            type ="text"
-            placeholder="Please enter English language."
-            value={value}
-            onChange ={translate}
-            style={{marginRight:"20px"}}
-            />
-            <Button variant="outline-info">Create</Button>
-            <p>{errorMessage}</p>
-        </form>
+
+        <InputGroup className="mb-3" onSubmit={create}>
+        {/* <form onSubmit={create}> */}
+        <Form.Control
+          className = "input_style"
+          type="text"
+          value={value}
+          onChange={translate}
+          placeholder="Please enter English language."
+          aria-label="Recipient's username"
+          aria-describedby="basic-addon2"
+        />
+        <Button variant="outline-secondary" id="button-addon2">
+          Button
+        </Button>
+        {/* </form> */}
+        <p>{errorMessage}</p>
+      </InputGroup>
+        // <form onSubmit={create}>
+        //     <input
+        //         className = "input_style"
+        //         type ="text"
+        //         placeholder="Please enter English language."
+        //         value={value}
+        //         onChange ={translate}
+        //         style={{marginRight:"20px"}}
+        //     />
+        //     <Button variant="dark">Dark</Button>
+        //     <p>{errorMessage}</p>
+        // </form>
     )
 }
 
-export default Form;
+export default Form2;

@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 const CatTitle = styled.div`
-    font-size: 45px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-bottom: 50px;
-    font-weight: bold;
-    color: #1e6b89;
-    text-shadow: 2px 3px 3px powderblue;
+    @import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@700&display=swap');
+    font-family: 'Cabin Sketch', cursive;
+    font-size: 74px;
+    text-align: center;
+    margin : 20px;
 `
 
 export default function Title(){

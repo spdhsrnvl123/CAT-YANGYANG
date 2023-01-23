@@ -1,9 +1,10 @@
-import Form from 'react-bootstrap/Form';
+import styled from "styled-components"
+
 
 export default function ClickPlease(){
     return(
-        <Form.Text id="passwordHelpBlock" muted>
+      <div>
         Click the heart to add the picture you want!
-      </Form.Text>
+      </div>
     )
 }

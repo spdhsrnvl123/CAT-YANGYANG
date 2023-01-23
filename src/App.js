@@ -5,6 +5,8 @@ import ClickPlease from './components/ClickPlease';
 import Title from './components/Title';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import styled from 'styled-components';
+import { Reset } from 'styled-reset';
+import Menu from './components/Menu';
 
      const fetchCat = async (text) => {
             const OPEN_API_DOMAIN = "https://cataas.com";
@@ -15,16 +17,39 @@ import styled from 'styled-components';
             return `${OPEN_API_DOMAIN}/${responseJson.url}`;
         };
 
-const Wrapper = styled.div`
-    height: 80vh;
+const Container = styled.div`
+    min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 480px;
-    margin: 0 auto;
-    border: 1px solid powderblue;
+`
 
+const Content = styled.div`
+    max-width: 414px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    background: #F9F871;
+`
+
+const Main = styled.main`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding : 30px;
+`
+
+const Footer = styled.footer`
+    text-align: center;
+    display: flex;
+    align-items: center;
+    font-size : 24px;
+    padding-bottom: 30px;
 `
 
 function App() {
@@ -80,27 +105,31 @@ const ResultList = ({value,index})=>{
 
 
   return (
-      <Wrapper>
-            <header>
-                <Title />
-            </header>
-            <main>
-                <Form onUpdate={update} />
-                <MainCard img={mainCat} onHeartClick={handleHeartClick} alreadyFavorite={alreadyFavorite} />
-            </main>
-            <footer>
-                {
-                    list.length === 0 ? <ClickPlease /> :
-                    <ul>
-                        {
-                            list.map((value,index) => (
-                                <ResultList key={index} index={index} value={value}></ResultList>
-                            ))
-                        }
-                    </ul> 
-                }
-            </footer>
-      </Wrapper>
+      <Container>
+        <Reset />
+        <Content>
+                <header>
+                    <Title />
+                </header>
+                <Menu />
+                <Main>
+                    <Form onUpdate={update} />
+                    <MainCard img={mainCat} onHeartClick={handleHeartClick} alreadyFavorite={alreadyFavorite} />
+                </Main>
+                <Footer>
+                    {
+                        list.length === 0 ? <ClickPlease /> :
+                        <ul>
+                            {
+                                list.map((value,index) => (
+                                    <ResultList key={index} index={index} value={value}></ResultList>
+                                ))
+                            }
+                        </ul> 
+                    }
+                </Footer>
+            </Content>
+      </Container>
   );
 }
 

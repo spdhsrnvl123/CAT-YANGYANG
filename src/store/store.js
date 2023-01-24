@@ -5,13 +5,15 @@ let list = createSlice({
     initialState : [],
     reducers : {
         setList(state,action){
-            // state.age += 1;
-            state = [...state,action.payload]
+            state.push(action.payload)
         },
+        deleteList(state,action){
+            state.splice(action.payload,1)
+        }
     }
 })
 
-export let { setList } = list.actions
+export let { setList, deleteList } = list.actions
 
 export default configureStore({
     reducer : { 

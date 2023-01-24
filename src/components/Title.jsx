@@ -6,6 +6,7 @@ const CatTitle = styled.div`
     font-size: 64px;
     text-align: center;
     margin : 30px;
+    text-shadow: 3px -1px 2px gray;
 `
 
 export default function Title(){

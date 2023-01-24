@@ -1,9 +1,28 @@
 import { useState } from "react";
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import styled from "styled-components";
 
-const Form2 = ({onUpdate})=>{
+const Form = styled.form`
+    display: flex;
+`
+
+const Input = styled.input`
+    border:0.1px solid gray;
+    border-radius: 10px;
+    width: 270px;
+    font-size: 18px;
+    padding: 5px;
+`
+const Button = styled.button`
+    border : 0;
+    border-radius: 10px;
+    margin-left: 10px;
+    width: 60px;
+    height: 30px;
+    color:white;
+    background-color: #212529;
+`
+
+const CardForm = ({onUpdate})=>{
     const includesHangul = (text) => /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/i.test(text);
     const [value, setValue] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
@@ -28,35 +47,23 @@ const Form2 = ({onUpdate})=>{
     }
 
     return(
+        <>
+            <Form onSubmit={create}>
+                <Input
+                    className = "input_style"
+                    type="text"
+                    value={value}
+                    onChange={translate}
+                    placeholder="Please English language."
+                    aria-label="Recipient's username"
+                    aria-describedby="basic-addon2"
+                />
+                <Button>Click</Button>
+            </Form>
+            <p style={{margin : "10px" , color : "red"}}>{errorMessage}</p>
+        </>
 
-        <InputGroup className="mb-3" onSubmit={create}>
-        {/* <form onSubmit={create}> */}
-        <Form.Control
-          className = "input_style"
-          type="text"
-          value={value}
-          onChange={translate}
-          placeholder="Please enter English language."
-          aria-label="Recipient's username"
-          aria-describedby="basic-addon2"
-        />
-        <Button variant="dark">Click</Button>
-        {/* </form> */}
-        <p>{errorMessage}</p>
-      </InputGroup>
-        // <form onSubmit={create}>
-        //     <input
-        //         className = "input_style"
-        //         type ="text"
-        //         placeholder="Please enter English language."
-        //         value={value}
-        //         onChange ={translate}
-        //         style={{marginRight:"20px"}}
-        //     />
-        //     <Button variant="dark">Dark</Button>
-        //     <p>{errorMessage}</p>
-        // </form>
     )
 }
 
-export default Form2;
+export default CardForm;

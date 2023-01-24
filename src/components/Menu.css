@@ -1,7 +1,9 @@
 .navli{
-    @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@500&display=swap');
     font-size : 20px;
     color: black;
     font-weight: bold;
-    font-family: 'Gluten', cursive;
+}
+
+a {
+    text-decoration: none;
 }

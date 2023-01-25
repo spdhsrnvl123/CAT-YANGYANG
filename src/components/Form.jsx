@@ -45,7 +45,14 @@ const CardForm = ({onUpdate})=>{
     return(
         <>
             <form onSubmit={create}>
-                <Input
+                <input
+                    style={{
+                        border:"0.1px solid gray",
+                        borderRadius: "10px",
+                        width: "270px",
+                        fontSize: "18px",
+                        padding: "5px"
+                    }}
                     type="text"
                     value={value}
                     onChange={translate}

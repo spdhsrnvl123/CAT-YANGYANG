@@ -31,18 +31,18 @@ function App() {
 
   return (
     <>
+      <BrowserRouter basename="/">
         <Container>
           <Reset />
           <Content>
             <header>
               <Title />
             </header>
-            <BrowserRouter basename={process.env.PUBLIC_URL}>
               <Menu />
               <Router />
-            </BrowserRouter>
           </Content>
-      </Container>
+        </Container>
+      </BrowserRouter>
     </>
   );
 }

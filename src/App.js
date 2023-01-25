@@ -37,7 +37,7 @@ function App() {
             <header>
               <Title />
             </header>
-            <BrowserRouter>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
               <Menu />
               <Router />
             </BrowserRouter>

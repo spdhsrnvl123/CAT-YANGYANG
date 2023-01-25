@@ -13,6 +13,7 @@ const Container = styled.div`
     justify-content: center;
     align-items: center;
     font-family: 'Gluten', cursive;
+    margin: 0 auto;
 `
 
 const Content = styled.div`
@@ -22,25 +23,21 @@ const Content = styled.div`
     flex-direction: column;
     align-items: center;
     background-image: linear-gradient( 135deg, #FFAA85 10%, #B3315F 100%);
-    border-top : 1px solid rgba(0,0,0,0.1);
-    border-right : 1px solid rgba(0,0,0,0.1);
-    border-left : 1px solid rgba(0,0,0,0.1);
 `
 
 function App() {
-
   return (
     <>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Container>
           <Reset />
-          <Content>
-            <header>
-              <Title />
-            </header>
-              <Menu />
-              <Router />
-          </Content>
+            <Content>
+              <header>
+                <Title />
+              </header>
+                <Menu />
+                <Router />
+            </Content>
         </Container>
       </BrowserRouter>
     </>

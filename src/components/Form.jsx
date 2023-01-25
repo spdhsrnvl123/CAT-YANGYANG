@@ -50,13 +50,10 @@ const CardForm = ({onUpdate})=>{
         <>
             <Form onSubmit={create}>
                 <Input
-                    className = "input_style"
                     type="text"
                     value={value}
                     onChange={translate}
                     placeholder="Please English language."
-                    aria-label="Recipient's username"
-                    aria-describedby="basic-addon2"
                 />
                 <Button>Click</Button>
             </Form>

@@ -1,10 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const Form = styled.form`
-    display: flex;
-`
-
 const Input = styled.input`
     border:0.1px solid gray;
     border-radius: 10px;
@@ -48,7 +44,7 @@ const CardForm = ({onUpdate})=>{
 
     return(
         <>
-            <Form onSubmit={create}>
+            <form onSubmit={create}>
                 <Input
                     type="text"
                     value={value}
@@ -56,7 +52,7 @@ const CardForm = ({onUpdate})=>{
                     placeholder="Please English language."
                 />
                 <Button>Click</Button>
-            </Form>
+            </form>
             <p style={{margin : "10px" , color : "red"}}>{errorMessage}</p>
         </>
 

@@ -1,5 +1,7 @@
 # 🐱Cat YANGYANG
 
+![CAT](https://user-images.githubusercontent.com/83896466/214822450-394ac1d7-bc96-4609-abaf-dd14a9422ffa.gif)
+
 ## 🚀배포
 https://spdhsrnvl123.github.io/Cat-YANGYANG/
 
@@ -49,3 +51,4 @@ https://spdhsrnvl123.github.io/Cat-YANGYANG/
 ├── App.js
 └── index.js
 ```
+

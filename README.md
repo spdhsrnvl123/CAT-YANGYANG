@@ -7,6 +7,8 @@ https://spdhsrnvl123.github.io/Cat-YANGYANG/
 
 ❗️CATTAS Open API에서 현재 복구모드에 있기 때문에 서버가 원할하지 않을 수 있습니다.
 
+CATTAS Open API : https://cataas.com/#/
+
 ## 🪄 프로젝트 실행 방법
 1. git clone하여 프로젝트를 내려받습니다.
     ```bash

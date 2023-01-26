@@ -1,6 +1,6 @@
 # 🐱Cat YANGYANG
 
-![CAT](https://user-images.githubusercontent.com/83896466/214822450-394ac1d7-bc96-4609-abaf-dd14a9422ffa.gif)
+![CAT](https://user-images.githubusercontent.com/83896466/214828145-d8262fab-b698-4c3c-8ca6-a65f7bfd49a7.gif)
 
 ## 🚀배포
 https://spdhsrnvl123.github.io/Cat-YANGYANG/
@@ -53,4 +53,3 @@ CATTAS Open API : https://cataas.com/#/
 ├── App.js
 └── index.js
 ```
-

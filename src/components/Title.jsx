@@ -12,7 +12,7 @@ const CatTitle = styled.div`
 export default function Title(){
     return(
         <CatTitle>
-          CAT Background
+          CAT <br />YANG YANG
         </CatTitle>
     )
 }

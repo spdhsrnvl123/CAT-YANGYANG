@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-// import store from '../store/store';
 import styled from 'styled-components';
 import { AiOutlineDelete } from 'react-icons/ai';
 import { deleteList } from '../store/store';

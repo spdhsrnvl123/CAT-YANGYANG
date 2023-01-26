@@ -1,8 +1,35 @@
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import { useDispatch, useSelector } from 'react-redux';
+import styled from 'styled-components';
 import { setList } from '../store/store'
 
+const Img = styled.img`
+  width:340px;
+  height:400px;
+  border-radius: 30px;
+  box-shadow: 2px -2px 3px;
+`;
+
+const Container = styled.div`
+   border:0;
+   margin-left:2px;
+   width:352px;
+   margin-bottom:20px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+`;
+
+const Button = styled.button`
+    border : 0;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    /* color:white; */
+    background-color: #212529;
+    margin-top: 20px;
+    cursor: pointer;
+`
 
 const MainCard = ({img})=>{
   //Redux
@@ -13,17 +40,12 @@ const MainCard = ({img})=>{
     dispatch(setList(img))
     window.alert("장바구니에 추가되었습니다.")
   }
-
-  // const heartIcon = alreadyFavorite ? "💖" : "🤍";
-    // const alreadyFavorite = list.includes(img);
-    // console.log(alreadyFavorite)
-
     return(
         <>
-          <Card style={{ border:"0", marginLeft:"2px", width:"352px" , marginBottom:"20px"}}>
-            <Card.Img width="200px" height="400px" src={img} alt="Card image" />
-          </Card>
-          <Button onClick={handleHeartClick} variant="dark">💖</Button>
+          <Container>
+            <Img src={img} alt="Card image" />
+            <Button onClick={handleHeartClick} >💖</Button>
+          </Container>
         </>
     )
 }

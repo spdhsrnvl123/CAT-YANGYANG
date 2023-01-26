@@ -1,13 +1,19 @@
-import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
-import './Menu.css';
+import styled from 'styled-components';
 
-function Menu() {
+const StyledLink = styled(Link)`
+	margin-right:14px;
+  font-size:20px;
+  color:black;
+  text-decoration:none
+`;
+
+const Menu = ()=> {
   return (
-    <Nav defaultActiveKey="/home" as="ul">
-        <Link style={{marginRight:"14px"}} to="/" className='navli'>Home</Link>
-        <Link to="/cart" className='navli'>Cart</Link>
-    </Nav>
+    <div>
+        <StyledLink to="/">Home</StyledLink>
+        <StyledLink to="/cart">Cart</StyledLink>
+    </div>
   );
 }
 

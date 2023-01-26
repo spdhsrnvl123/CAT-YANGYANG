@@ -8,13 +8,14 @@ const Input = styled.input`
     font-size: 18px;
     padding: 5px;
 `
-const Button = styled.button`
+const Btn = styled.button`
     border : 0;
     border-radius: 10px;
     margin-left: 10px;
     width: 60px;
     height: 30px;
     color:white;
+    cursor: pointer;
     background-color: #212529;
 `
 
@@ -45,20 +46,13 @@ const CardForm = ({onUpdate})=>{
     return(
         <>
             <form onSubmit={create}>
-                <input
-                    style={{
-                        border:"0.1px solid gray",
-                        borderRadius: "10px",
-                        width: "270px",
-                        fontSize: "18px",
-                        padding: "5px"
-                    }}
+                <Input
                     type="text"
                     value={value}
                     onChange={translate}
                     placeholder="Please English language."
                 />
-                <Button>Click</Button>
+                <Btn>Click</Btn>
             </form>
             <p style={{margin : "10px" , color : "red"}}>{errorMessage}</p>
         </>

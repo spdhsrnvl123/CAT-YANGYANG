@@ -36,7 +36,7 @@ CATTAS Open API : https://cataas.com/#/
 - 장바구니 페이지
     - 고양이 이미지 삭제 기능 구현
 
-## 디렉토리 구조
+## 📂디렉토리 구조
 ```
 .
 ├── components

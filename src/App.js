@@ -1,9 +1,9 @@
-import { Reset } from "styled-reset";
-import Router from "./router/router"
 import styled from "styled-components";
 import Title from "./components/Title";
 import Menu from "./components/Menu";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Cart from "./pages/Cart";
 
 const Container = styled.div`
     min-height: 100vh;
@@ -30,13 +30,14 @@ function App() {
     <>
       <BrowserRouter basename={process.env.PUBLIC_URL}>
         <Container>
-          <Reset />
+          {/* <Reset /> */}
             <Content>
-              <header>
                 <Title />
-              </header>
                 <Menu />
-                <Router />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/cart" element={<Cart />} />
+                </Routes>
             </Content>
         </Container>
       </BrowserRouter>
